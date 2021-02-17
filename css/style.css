@@ -1,0 +1,140 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	
+}
+body{
+	background: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#banner{
+	background: url(../img/panel.png) no-repeat;
+	margin: 170px;
+	position: relative;
+	width: 982px;
+	height: 331px;
+	opacity: 0.8;
+	box-shadow: 10px 10px 10px;
+}
+#banner ul img{
+	border-radius: 50%;
+}
+#banner ul li{
+	list-style: none;
+	float: left;
+	cursor: pointer;
+}
+
+#banner ul li:nth-child(1){
+	position: absolute;
+	left: 18px;
+	top: 160px;
+}
+#banner ul li:nth-child(2){
+	position: absolute;
+	left: 210px;
+	top: 10px;
+}
+#banner ul li:nth-child(3){
+	position: absolute;
+	left: 327px;
+	top: 102px;
+}
+#banner ul li:nth-child(4){
+	position: absolute;
+	left: 580px;
+	top: 224px;
+}
+#banner ul li:nth-child(5){
+	position: absolute;
+	left: 692px;
+	top: 88px;
+}
+
+.fl{
+	float: left;
+}
+/* music------------------------------------- */
+#music{
+	width: 550px;
+	height: 120px;
+	background-color: black;
+	position: fixed;
+	left: 0;
+	bottom: 50px;
+	opacity: 0.8;
+	box-shadow: 10px 10px 10px;
+}
+#music .m_img{
+	margin-top: 15px;
+	margin-left: 10px;
+}
+.m_text{
+	color: white;
+	position: absolute;
+	font-size: 20px;
+	font-weight: bold;
+	top: 47px;
+	left: 136px;
+}
+.m_btn{
+	position: absolute;
+	top: 44px;
+	left: 315px;
+}
+.m_btn a{
+	float: left;
+	width: 35px;
+	height: 35px;
+	background: url(../img/sprite.png);
+	margin-left: 10px;
+	
+}
+.m_btn .m_pre{
+	background-position: -105px -2px;
+}
+.m_btn .m_pre:hover{
+	background-position: -105px -46px;
+}
+
+.m_btn .m_play{
+	width: 47px;
+	height: 47px;
+	background-position: -153px -7px;
+	margin-top: -3px;
+}
+.m_btn .m_play:hover{
+	background-position: -153px -65px;
+	margin-top: -3px;
+}
+.m_btn .m_pause{
+	width: 47px;
+	height: 47px;
+	background-position: -414px -129px;
+	margin-top: -3px;
+}
+.m_btn .m_pause:hover{
+	background-position: -472px -129px;
+	margin-top: -3px;
+}
+
+
+
+
+.m_btn .m_next{
+	background-position: -215px -2px;
+}
+.m_btn .m_next:hover{
+	background-position: -215px -46px;
+}
+.m_close{
+	float: right;
+	width: 23px;
+	height: 120px;
+	background: url(../img/sprite.png);
+	background-position: -5px -17px;
+	cursor: pointer;
+}
+
