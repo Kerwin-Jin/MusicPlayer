@@ -14,15 +14,31 @@
 
 */
 
+var flag = false;
 $(function(){
+	
+	
 	$("#banner ul li").on("click",function(){
 		var index = $(this).index();
 		console.log(index);
 		changeBg(index+1);
-		// playMusic(true,$(this).index()+1);
+		playMusic(true,$(this).index()+1);
 		changeImgandText(index+1);
+		$(this).children().addClass("img_rotate")
 		
-		pause();
+		$(this).siblings().children().removeClass("img_rotate");
+		// pause();
+	})
+	
+	
+	$(".m_btn a").eq(1).on("click",function(){
+		if(flag){
+			play();
+		}else{
+			pause();
+		}
+		
+		flag = !flag;
 	})
 })
 
@@ -31,6 +47,9 @@ $(function(){
 function playMusic(isPlay,index){
 	if(isPlay){
 		$("#audio").prop("src","./music/"+index+".mp3");
+		$("#audio").get(0).play();
+		pause();
+		flag = !flag;
 	}else{
 		console.log("播放失败");
 	}
@@ -55,9 +74,14 @@ function changeImgandText(index){
 }
 
 
-
+//控制播放与暂停按钮
 function pause(){
 	//添加暂停样式
 	$(".m_btn a").eq(1).removeClass("m_play").addClass("m_pause");
 	$(".m_btn a").eq(1).attr("title","暂停");
+}
+
+function play(){
+	$(".m_btn a").eq(1).removeClass("m_pause").addClass("m_play");
+	$(".m_btn a").eq(1).attr("title","播放");
 }

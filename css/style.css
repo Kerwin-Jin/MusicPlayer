@@ -31,6 +31,10 @@ body{
 	position: absolute;
 	left: 18px;
 	top: 160px;
+	
+}
+.img_rotate{
+	animation: imgRotate 2s infinite linear;
 }
 #banner ul li:nth-child(2){
 	position: absolute;
@@ -52,6 +56,20 @@ body{
 	left: 692px;
 	top: 88px;
 }
+
+
+
+/* 图片旋转动画 */
+@keyframes imgRotate{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+/* -------------banner end-------------------------------- */
+
 
 .fl{
 	float: left;
