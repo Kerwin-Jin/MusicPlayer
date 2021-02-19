@@ -15,47 +15,62 @@
 */
 
 var flag = false;
+var p_index = 0;
 $(function(){
-	
+	$("#audio").prop("src","./music/1.mp3");
 	
 	$("#banner ul li").on("click",function(){
 		var index = $(this).index();
-		console.log(index);
 		changeBg(index+1);
-		playMusic(true,$(this).index()+1);
+		playMusic(flag,$(this).index()+1);
 		changeImgandText(index+1);
-		$(this).children().addClass("img_rotate")
 		
-		$(this).siblings().children().removeClass("img_rotate");
-		// pause();
+		p_index = index;
 	})
-	
 	
 	$(".m_btn a").eq(1).on("click",function(){
+		
+		changeBg(p_index+1);
 		if(flag){
 			play();
+			$("#audio").get(0).pause();
+			$("#banner ul li").children().removeClass("img_rotate");
 		}else{
 			pause();
+			$("#audio").get(0).play();
+			console.log(p_index);
+			$("#banner ul li img").eq(p_index).addClass("img_rotate");
+			$("#banner ul li").eq(p_index).siblings().children().removeClass("img_rotate");
 		}
-		
 		flag = !flag;
 	})
+	
 })
+
+
+//上一首
+$(".m_pre").on("click",function(){
+	p_index--;
+	playMusic(flag,$(this).index()+1);
+})
+
 
 
 // 播放音乐
 function playMusic(isPlay,index){
-	if(isPlay){
+	if(!isPlay){
 		$("#audio").prop("src","./music/"+index+".mp3");
 		$("#audio").get(0).play();
+		$("#banner ul li").eq(index-1).children().addClass("img_rotate");
+		$("#banner ul li").eq(index-1).siblings().children().removeClass("img_rotate");
 		pause();
-		flag = !flag;
 	}else{
-		console.log("播放失败");
+		$("#audio").get(0).pause();
+		$("#banner ul li").eq(index-1).children().removeClass("img_rotate");
+		play();
 	}
+	flag = !flag;
 }
-
-
 
 //更换背景图片
 function changeBg(index){
@@ -72,7 +87,6 @@ function changeImgandText(index){
 	$("#music .m_img img").attr("src","./img/"+index+".jpg");
 	$("#music .m_text").text($("#banner ul li img").eq(index-1).attr("title"));
 }
-
 
 //控制播放与暂停按钮
 function pause(){
